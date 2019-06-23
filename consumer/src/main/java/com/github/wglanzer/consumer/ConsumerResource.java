@@ -1,5 +1,6 @@
 package com.github.wglanzer.consumer;
 
+import com.github.wglanzer.common.*;
 import io.smallrye.reactive.messaging.annotations.*;
 import io.vertx.core.json.JsonObject;
 
@@ -21,6 +22,9 @@ public class ConsumerResource
   @Path("/doTest")
   public void sendMessage()
   {
+    System.out.println(EventDeserializer.class); // just to be safe they look "used"
+    System.out.println(EventSerializer.class);
+
     testEmitter.send(new JsonObject()
                          .put("key", "value")
                          .put("key2", "value2"));
