@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+
+  # Zookeeper to manage kafka instances
+  kafka_zookeeper:
+    image: debezium/zookeeper:latest
+    restart: always
+    ports:
+      - "2181:2181"
+
+  # Kafka instance
+  kafka:
+    image: debezium/kafka:latest
+    restart: always
+    links:
+      - kafka_zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      ZOOKEEPER_CONNECT: "kafka_zookeeper:2181"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_LOG_RETENTION_HOURS: -1
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LOCAL:PLAINTEXT
+      LISTENERS: "LOCAL://0.0.0.0:9092"
+      ADVERTISED_LISTENERS: "LOCAL://kafka:9092"
+      KAFKA_INTER_BROKER_LISTENER_NAME: LOCAL
