@@ -5,6 +5,3 @@
 *.ipr
 *.iml
 *.iws
-
-# Maven
-target

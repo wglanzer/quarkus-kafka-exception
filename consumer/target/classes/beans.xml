@@ -1,0 +1,10 @@
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+    version="1.2" bean-discovery-mode="annotated">
+
+
+  <bean id="com.github.wglanzer.common.EventDeserializer" class="com.github.wglanzer.common.EventDeserializer" />
+  <bean id="com.github.wglanzer.common.EventSerializer" class="com.github.wglanzer.common.EventSerializer" />
+
+</beans>
