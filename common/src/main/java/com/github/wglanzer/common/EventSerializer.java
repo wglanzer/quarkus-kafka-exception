@@ -1,6 +1,5 @@
 package com.github.wglanzer.common;
 
-import io.quarkus.runtime.annotations.RegisterForReflection;
 import io.vertx.core.json.JsonObject;
 import org.apache.kafka.common.serialization.Serializer;
 
@@ -11,7 +10,6 @@ import java.util.Map;
  *
  * @author w.glanzer, 23.06.2019
  */
-@RegisterForReflection
 public class EventSerializer implements Serializer<JsonObject>
 {
 
